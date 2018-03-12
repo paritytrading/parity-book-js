@@ -4,7 +4,7 @@ This directory contains examples of Parity Order Book usage.
 
 ## Usage
 
-To run the Node example:
+Run the Node example:
 
 ```
 node server.js
