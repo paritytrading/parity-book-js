@@ -1,0 +1,19 @@
+{
+  "name": "parity-book",
+  "version": "0.1.0",
+  "description": "Parity Order Book implements limit order book reconstruction",
+  "author": "Jussi Virtanen",
+  "license": "Apache-2.0",
+  "repository": "paritytrading/parity-book-js",
+  "scripts": {
+    "browserify": "browserify --outfile examples/browser-bundle.js examples/browser.js",
+    "test": "mocha"
+  },
+  "dependencies": {
+    "collections": "^5"
+  },
+  "devDependencies": {
+    "browserify": "^16",
+    "mocha": "^5"
+  }
+}
