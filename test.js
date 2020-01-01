@@ -45,12 +45,12 @@ describe('Market', function () {
     market.add(1, 3, 'B', 1000,  50);
     expected.push(update(true));
 
-    assert.deepEqual(levels(), [
+    assert.deepStrictEqual(levels(), [
       [1000,  50, 1001, 200],
       [ 999, 100,    0,   0],
     ]);
 
-    assert.deepEqual(received, expected);
+    assert.deepStrictEqual(received, expected);
   });
 
   it('handles modification', function () {
@@ -63,9 +63,9 @@ describe('Market', function () {
     market.modify(2, 100);
     expected.push(update(true));
 
-    assert.deepEqual(levels(), [[999, 100, 1001, 100]]);
+    assert.deepStrictEqual(levels(), [[999, 100, 1001, 100]]);
 
-    assert.deepEqual(received, expected);
+    assert.deepStrictEqual(received, expected);
   });
 
   it('handles execution', function () {
@@ -82,9 +82,9 @@ describe('Market', function () {
     expected.push(trade('S', 1001, 200));
     expected.push(update(true));
 
-    assert.deepEqual(levels(), [[999, 100, 1002, 50]]);
+    assert.deepStrictEqual(levels(), [[999, 100, 1002, 50]]);
 
-    assert.deepEqual(received, expected);
+    assert.deepStrictEqual(received, expected);
   });
 
   it('handles execution with price', function () {
@@ -101,9 +101,9 @@ describe('Market', function () {
     expected.push(trade('S', 1000, 200));
     expected.push(update(true));
 
-    assert.deepEqual(levels(), [[999, 100, 1002, 50]]);
+    assert.deepStrictEqual(levels(), [[999, 100, 1002, 50]]);
 
-    assert.deepEqual(received, expected);
+    assert.deepStrictEqual(received, expected);
   });
 
   it('handles partial execution', function () {
@@ -117,9 +117,9 @@ describe('Market', function () {
     expected.push(trade('S', 1001, 100));
     expected.push(update(true));
 
-    assert.deepEqual(levels(), [[999, 100, 1001, 100]]);
+    assert.deepStrictEqual(levels(), [[999, 100, 1001, 100]]);
 
-    assert.deepEqual(received, expected);
+    assert.deepStrictEqual(received, expected);
   });
 
   it('handles cancellation', function () {
@@ -135,9 +135,9 @@ describe('Market', function () {
     assert.equal(0, market.cancel(2, 200));
     expected.push(update(true));
 
-    assert.deepEqual(levels(), [[999, 100, 1002, 50]]);
+    assert.deepStrictEqual(levels(), [[999, 100, 1002, 50]]);
 
-    assert.deepEqual(received, expected);
+    assert.deepStrictEqual(received, expected);
   });
 
   it('handles partial cancellation', function () {
@@ -150,9 +150,9 @@ describe('Market', function () {
     assert.equal(100, market.cancel(2, 100));
     expected.push(update(true));
 
-    assert.deepEqual(levels(), [[999, 100, 1001, 100]]);
+    assert.deepStrictEqual(levels(), [[999, 100, 1001, 100]]);
 
-    assert.deepEqual(received, expected);
+    assert.deepStrictEqual(received, expected);
   });
 
   it('handles deletion', function () {
@@ -168,9 +168,9 @@ describe('Market', function () {
     market.delete(2);
     expected.push(update(true));
 
-    assert.deepEqual(levels(), [[999, 100, 1002, 50]]);
+    assert.deepStrictEqual(levels(), [[999, 100, 1002, 50]]);
 
-    assert.deepEqual(received, expected);
+    assert.deepStrictEqual(received, expected);
   });
 
   it('handles empty book', function () {
@@ -186,9 +186,9 @@ describe('Market', function () {
     market.delete(1);
     expected.push(update(true));
 
-    assert.deepEqual(levels(), []);
+    assert.deepStrictEqual(levels(), []);
 
-    assert.deepEqual(received, expected);
+    assert.deepStrictEqual(received, expected);
   });
 
   function update(bbo) {
