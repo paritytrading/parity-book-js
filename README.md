@@ -1,3 +1,6 @@
+> :warning: This repository is **archived** and no further development will
+> take place.
+
 # Parity Order Book
 
 Parity Order Book implements limit order book reconstruction in JavaScript.
